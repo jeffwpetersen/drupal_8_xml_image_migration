@@ -1,0 +1,9 @@
+name: kcrhi
+type: module
+description: Data Importer
+core: 8.x
+package: Custom
+dependencies:
+  - drupal:migrate
+  - drupal:migrate_plus
+  - drupal:migrate_tools

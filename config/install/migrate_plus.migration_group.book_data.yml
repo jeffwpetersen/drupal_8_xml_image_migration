@@ -1,0 +1,29 @@
+# A "migration group" is - surprise! - a group of migrations. It is used to
+# group migrations for display by our tools, and to perform operations on a
+# specific set of migrations. It can also be used to hold any configuration
+# common to those migrations, so it doesn't have to be duplicated in each one.
+
+# The machine name of the group, by which it is referenced in individual
+# migrations.
+id: book_data
+
+# A human-friendly label for the group.
+label: Import Data
+
+# More information about the group.
+description: Importing the data for the kcrhi site
+
+# Short description of the type of source, e.g. "Drupal 6" or "WordPress".
+source_type: Flat Files
+
+# Here we add any default configuration settings to be shared among all
+# migrations in the group. For this example, the source tables are in the
+# Drupal (default) database, but usually if your source data is in a
+# database it will be external.
+#shared_configuration:
+  #source:
+    #key: num
+dependencies:
+  enforced:
+    module:
+      - kcrhi
