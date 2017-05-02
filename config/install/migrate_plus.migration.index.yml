@@ -1,4 +1,4 @@
-# Migration configuration for beer content.
+# Migration configuration for drupal_8_xml_image_migration
 id: childbook_index
 label: Child Books Import
 migration_group: book_data
@@ -10,7 +10,7 @@ source:
   # Normally, this is one or more fully-qualified URLs or file paths. Because
   # we can't hardcode your local URL, we provide a relative path here which
   # hook_install() will rewrite to a full URL for the current site.
-  urls: http://slideshow8.local/modules/kcrhi/book.xml
+  urls: http://slideshow8.local/modules/drupal_8_xml_image_migration/book.xml
   # Visit the URL above (relative to your site root) and look at it. You can see
   # that <response> is the outer element, and each item we want to import is a
   # <position> element. The item_xpath value is the xpath to use to query the
@@ -52,11 +52,11 @@ destination:
   plugin: entity:node
   default_bundle: children_book # destination machine name
 process:
-  # Hardcode the destination node type (bundle) as 'migrate_example_beer'. or publication in kcrhi
+  # Hardcode the destination node type (bundle) as 'children_book'.
   type:
     plugin: default_value
-    default_value: children_book
-  title: name_title
+    default_value: children_book # my_destinatiobn_node_machine_name
+  title: name_title # destination_machine_name: source_value_referenced_above
   sticky:
     plugin: default_value
     default_value: 0
@@ -65,7 +65,12 @@ process:
   field_image:
     plugin: migration
     migration: import_image
+    # I am using the my_unique_id value which references the fid assigned
+    # in the import_image migration.
+    # You should be able to use the name_iamge for reference but as of
+    # now I have not got it working.
     source: my_unique_id
+
 migration_dependencies:
   optional:
     - import_image

@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains kcrhi.module.
+ * Contains drupal_8_xml_image_migration.module.
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
@@ -10,10 +10,10 @@ use Drupal\Core\Routing\RouteMatchInterface;
 /**
  * Implements hook_help().
  */
-function kcrhi_help($route_name, RouteMatchInterface $route_match) {
+function drupal_8_xml_image_migration_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
-    // Main module help for the kcrhi module.
-    case 'help.page.kcrhi':
+    // Main module help for the drupal_8_xml_image_migration module.
+    case 'help.page.drupal_8_xml_image_migration.info':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
       $output .= '<p>' . t('Data Importer') . '</p>';

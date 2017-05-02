@@ -33,7 +33,7 @@ source:
       label: 'Unique position identifier'
       selector: num
     -
-      name: image
+      name: name_image
       label: 'Position name'
       selector: image
 
@@ -49,7 +49,16 @@ source:
 destination:
   # We will be creating entities of type "file" this time.
   plugin: 'entity:file'
-# Mappings.
+  # mikeryan says...
+  # By default, the system-of-record for a migration is the source data -
+  # that is, when content is imported and the destination entity already exists,
+  # it is entirely replaced by the source data. For the import to partially overwrite
+  # the destination node, you can set "overwrite_properties" on the destination plugin:
+  overwrite_properties:
+      - title
+      - body
+      - field_to_be_overwritten
+      # - field_that_wont_be_overwritten
 process:
   file_source:
     -
@@ -57,7 +66,7 @@ process:
       delimiter: /
       source:
         - constants/file_source_uri
-        - image
+        - name_image
     # Make sure we don't have any url-unfriendly characters.
     -
       plugin: urlencode
@@ -67,23 +76,20 @@ process:
       delimiter: /
       source:
         - constants/file_dest_uri
-        - image
+        - name_image
     # Make sure we don't have any url-unfriendly characters.
     -
       plugin: urlencode
-  # We use the image file names as is.
-  #
-  # Alternatively, if we wish to name them after some other
-  # column, we can do it here.
+  # Exsiting fids will be overwriten by migration.
+  # If you importing into a populated site be sure you new
+  # fids are unique.
   fid: my_unique_id
-  filename: image
+  uid:
+    plugin: default_value
+    default_value: '1'
+  filename: name_image
   uri:
     plugin: file_copy
     source:
       - '@file_source'
       - '@file_dest'
-# Dependencies.
-dependencies:
-  enforced:
-    module:
-      - kcrhi

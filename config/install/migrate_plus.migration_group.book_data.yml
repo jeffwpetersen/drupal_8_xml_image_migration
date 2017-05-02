@@ -11,7 +11,7 @@ id: book_data
 label: Import Data
 
 # More information about the group.
-description: Importing the data for the kcrhi site
+description: Importing content with images from an XML file
 
 # Short description of the type of source, e.g. "Drupal 6" or "WordPress".
 source_type: Flat Files
@@ -26,4 +26,4 @@ source_type: Flat Files
 dependencies:
   enforced:
     module:
-      - kcrhi
+      - drupal_8_xml_image_migration

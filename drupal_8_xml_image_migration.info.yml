@@ -1,4 +1,4 @@
-name: kcrhi
+name: drupal_8_xml_image_migration
 type: module
 description: Data Importer
 core: 8.x
