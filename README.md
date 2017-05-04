@@ -7,7 +7,7 @@ Requirements: content type 1 : children_book with 1 field: field_image
 
 ## BOOK AND IMAGE MIGRATION
 ------------
-This module imports a list of books and corsponding images.
+This module imports a list of books and corresponding images.
 
 ## XML FILE MIGRATION
 ------------
@@ -23,10 +23,10 @@ Migrate images and image fields
 drush mi --all,  migrate-import --all
 drush migrate-import my_migration
 
-enable the configraution manager module and use drush to update your configuratoion after changes.
+enable the configuration manager module and use drush to update your configuration after changes.
 drush config-import --partial --source=modules/drupal_8_xml_image_migration/config/install -y && drush migrate-import --group=book_data --update -y
 
-MMSG migrate-messages will dispaly any error messages
+MMSG migrate-messages will display any error messages
 drush mmsg program_image
 
 MRS migrate-reset-status will halt any migrations that are stuck

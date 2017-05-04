@@ -52,7 +52,7 @@ destination:
 process:
   type:
     plugin: default_value
-    default_value: children_book # my_destinatiobn_node_machine_name
+    default_value: children_book # my_destination_node_machine_name
   title: name_title # destination_machine_name: source_value_referenced_above
   sticky:
     plugin: default_value
@@ -66,5 +66,5 @@ process:
     # The name of the file is the id used to
     # uniquely identify each imported item.
     source: name_image
-    # Alternitivly set and use the fid.
+    # Alternatively set and use the fid.
     # source: my_unique_id

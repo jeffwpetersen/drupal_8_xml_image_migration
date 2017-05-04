@@ -80,8 +80,8 @@ process:
     # Make sure we don't have any url-unfriendly characters.
     -
       plugin: urlencode
-  # Optionaly you can set the fid: manually using my_unique_id
-  # NOTE: Exsiting fids will be overwriten by migration.
+  # Optionally you can set the fid: manually using my_unique_id
+  # NOTE: Existing fids will be overwritten by migration.
   # fid: my_unique_id #
   uid:
     plugin: default_value
