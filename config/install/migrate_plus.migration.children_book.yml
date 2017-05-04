@@ -1,8 +1,8 @@
 # Migration file for creating book with cover image
 
-id: import_image
+id: import_image #migrate_machine_name
 label: Childrens Book Reading List.
-migration_group: book_data
+migration_group: book_data #migrate_machine_name
 migration_tags:
   - file
   - image

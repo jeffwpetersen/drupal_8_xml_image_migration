@@ -1,7 +1,7 @@
 # Migration configuration for drupal_8_xml_image_migration
-id: childbook_index
+id: childbook_index #migrate_machine_name
 label: Child Books Import
-migration_group: book_data
+migration_group: book_data #migrate_machine_name
 source:
   # We use the XML data parser plugin.
   plugin: url
@@ -60,23 +60,24 @@ process:
   body: name_body
   field_title: name_title
 
-  #field_image:
-    #plugin: migration
-    #migration: import_image
-    # no_stub: true
-    # The name of the file is the id used to
-    # uniquely identify each imported item.
-    #source: name_image
-    # Alternatively set and use the fid.
-    # source: my_unique_id
+# field_image:
+#    plugin: migration
+#    migration: import_image #migrate_machine_name
+#    # no_stub: true
+#    # The name of the file is the id used to
+#    # uniquely identify each imported item.
+#    source: name_image
+#    # Alternatively set and use the fid.
+#    # source: my_unique_id
 
    #################
-   # if you have alt and title fields you need to enclose the field name in quotes and add target_id.
+   # if you have alt and title fields you need to enclose the field name in
+   # quotes and add target_id.
    #################
 
   'field_image/target_id':
      plugin: migration
-     migration: import_image
+     migration: import_image #migrate_machine_name
      source: name_image
   'field_image/alt':
      plugin: default_value
