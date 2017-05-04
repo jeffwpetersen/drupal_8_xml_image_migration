@@ -14,7 +14,7 @@ source:
   # Normally, this is one or more fully-qualified URLs or file paths. Because
   # we can't hardcode your local URL, we provide a relative path here which
   # hook_install() will rewrite to a full URL for the current site.
-  urls: http://slideshow8.local/modules/kcrhi/book.xml
+  urls: modules/kcrhi/book.xml
   # Visit the URL above (relative to your site root) and look at it. You can see
   # that <response> is the outer element, and each item we want to import is a
   # <position> element. The item_xpath value is the xpath to use to query the

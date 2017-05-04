@@ -3,7 +3,9 @@ INTRODUCTION
 The drupal_8_xml_image_migration module is an example of a Drupal 8 migration of
 an xml flat file with referenced images.
 
-# drupal_8_xml_image_migration BOOK AND IMAGE MIGRATION
+Requirements: content type 1 : children_book with 1 field: field_image
+
+## BOOK AND IMAGE MIGRATION
 ------------
 This module imports a list of books and corsponding images.
 
