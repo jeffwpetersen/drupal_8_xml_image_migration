@@ -66,7 +66,7 @@ process:
 #    # no_stub: true
 #    # The name of the file is the id used to
 #    # uniquely identify each imported item.
-#    source: name_image
+#    source: name_image # <----Important: unique id of item. In this case the name of the file.
 #    # Alternatively set and use the fid.
 #    # source: my_unique_id
 
@@ -78,7 +78,7 @@ process:
   'field_image/target_id':
      plugin: migration
      migration: import_image #migrate_machine_name
-     source: name_image
+     source: name_image # <----Important: unique id of item. In this case the name of the file.
   'field_image/alt':
      plugin: default_value
      default_value: 'What a great selection timmy'

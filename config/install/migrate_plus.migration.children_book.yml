@@ -41,7 +41,7 @@ source:
   # The 'type' makes sure the migration map table
   # uses the proper schema type for stored the IDs.
   ids:
-    name_image: # unique id of item. In this case the name of the file.
+    name_image: # <----Important: unique id of item. In this case the name of the file.
       type: string
   constants:
     file_source_uri: 'public://book_covers_source'
