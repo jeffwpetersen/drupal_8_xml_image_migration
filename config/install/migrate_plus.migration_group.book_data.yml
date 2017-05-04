@@ -8,7 +8,7 @@
 id: book_data
 
 # A human-friendly label for the group.
-label: Import Data
+label: Import Book Data
 
 # More information about the group.
 description: Importing content with images from an XML file

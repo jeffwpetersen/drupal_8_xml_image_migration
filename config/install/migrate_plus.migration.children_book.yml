@@ -6,7 +6,6 @@ migration_group: book_data
 migration_tags:
   - file
   - image
-# Source.
 source:
   # We use the XML data parser plugin.
   plugin: url
@@ -29,19 +28,20 @@ source:
   # is relative to the elements retrieved by item_xpath.
   fields:
     -
-      name: my_unique_id
-      label: 'Unique position identifier'
-      selector: num
-    -
       name: name_image
       label: 'Position name'
       selector: image
+    -
+      name: my_unique_id
+      label: 'Unique position identifier'
+      selector: num
 
   # Under 'ids', we identify source fields populated above which will uniquely
-  # identify each imported item. The 'type' makes sure the migration map table
+  # identify each imported item. Use the id as the source: value in your field.
+  # The 'type' makes sure the migration map table
   # uses the proper schema type for stored the IDs.
   ids:
-    my_unique_id:
+    name_image: # unique id of item. In this case the name of the file.
       type: string
   constants:
     file_source_uri: 'public://book_covers_source'
@@ -54,11 +54,11 @@ destination:
   # that is, when content is imported and the destination entity already exists,
   # it is entirely replaced by the source data. For the import to partially overwrite
   # the destination node, you can set "overwrite_properties" on the destination plugin:
-  overwrite_properties:
-      - title
-      - body
-      - field_to_be_overwritten
-      # - field_that_wont_be_overwritten
+  # overwrite_properties:
+      #  - title
+      #  - body
+      #  - field_to_be_overwritten
+      ## - field_that_wont_be_overwritten
 process:
   file_source:
     -
@@ -80,11 +80,16 @@ process:
     # Make sure we don't have any url-unfriendly characters.
     -
       plugin: urlencode
-  # Exsiting fids will be overwriten by migration.
-  # If you importing into a populated site be sure you new
-  # fids are unique.
-  fid: my_unique_id
+  # Optionaly you can set the fid: manually using my_unique_id
+  # NOTE: Exsiting fids will be overwriten by migration.
+  # fid: my_unique_id #
   uid:
+    plugin: default_value
+    default_value: '1'
+  filemime:
+    plugin: default_value
+    default_value: 'image/jpeg'
+  status:
     plugin: default_value
     default_value: '1'
   filename: name_image
@@ -93,3 +98,6 @@ process:
     source:
       - '@file_source'
       - '@file_dest'
+migration_dependencies:
+  optional:
+    - childbook_index
