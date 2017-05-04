@@ -59,12 +59,28 @@ process:
     default_value: 0
   body: name_body
   field_title: name_title
-  field_image:
-    plugin: migration
-    migration: import_image
+
+  #field_image:
+    #plugin: migration
+    #migration: import_image
     # no_stub: true
     # The name of the file is the id used to
     # uniquely identify each imported item.
-    source: name_image
+    #source: name_image
     # Alternatively set and use the fid.
     # source: my_unique_id
+
+   #################
+   # if you have alt and title fields you need to enclose the field name in quotes and add target_id.
+   #################
+
+  'field_image/target_id':
+     plugin: migration
+     migration: import_image
+     source: name_image
+  'field_image/alt':
+     plugin: default_value
+     default_value: 'What a great selection timmy'
+  'field_image/title':
+    plugin: default_value
+    default_value: 'hooray for reading'
